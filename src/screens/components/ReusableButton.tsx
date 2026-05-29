@@ -10,7 +10,7 @@ const ReusableButton = ({type, label, onClickHandler, className} : buttonProps) 
     <div>
         <button
         type={type}
-        className={className}
+        className={`${className} px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer transition-colors duration-300`}
         onClick={onClickHandler}
         >
         {label}
