@@ -1,27 +1,27 @@
 import { Outlet } from "react-router-dom";
+import { SidebarProvider } from "@/shadui//components/ui/sidebar";
+import { AppSidebar } from "@/screens/components/AppSidebar";
 
-export default function AppLayout({ isLoggedIn }: { isLoggedIn?: boolean }) {
-  return (
-    <div className="bg-[url('\src\screens\imgs\philarmywallpaper.jpg')] bg-cover bg-center h-64 w-full flex items-center justify-center h-screen w-screen overflow-hidden flex-col">
-
-      {/* Header */}
-      <header className={`h-16 w-full flex items-center ${isLoggedIn ? 'justify-between' : 'justify-center'} px-6 border-b`}>
-        <h1 className="font-bold">Document Handler</h1>
-        {isLoggedIn && (
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Logout
-          </button>
-        )}
-      </header>
-
-      <main className="h-full w-full flex items-center justify-center">
+export default function AppLayout({ isAuthenticated }: { isAuthenticated: boolean | null }) {
+  
+  if (!isAuthenticated) {
+    return (
+      <div className="w-full min-h-screen bg-slate-900 text-white">
         <Outlet />
-      </main>
+      </div>
+    )
+  }
 
-      <footer className="h-12 flex items-center justify-center border-t text-sm">
-        © 2026 Document Handler. All rights reserved.
-      </footer>
-
-    </div>
-  );
+  return (
+    <SidebarProvider>
+      <div className="flex min-h-screen w-full bg-[#f8f9fa] text-slate-900">
+        <AppSidebar isAuthenticated={isAuthenticated}/>
+        <main className="flex-1 p-6 relative overflow-x-hidden">
+          <div className="w-full">
+            <Outlet />
+          </div>
+        </main>
+      </div>
+    </SidebarProvider>
+  )
 }
