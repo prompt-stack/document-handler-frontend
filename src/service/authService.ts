@@ -1,6 +1,6 @@
 export const authService = {
     async getLoginUrl() {
-        return fetch(import.meta.env.BASE_URL + "/auth/login", {
+        return fetch(import.meta.env.VITE_API_URL + "/auth/login", {
                 credentials: 'include',
             })
             .then(response => response.json())
@@ -14,7 +14,7 @@ export const authService = {
 
     },
     async logout(): Promise<string | null> {
-        return fetch(import.meta.env.BASE_URL + "/auth/logout", {
+        return fetch(import.meta.env.VITE_API_URL + "/auth/logout", {
                 method: 'POST',
                 credentials: 'include',
             })

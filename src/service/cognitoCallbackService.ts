@@ -15,7 +15,7 @@ export const cognitoCallbackService = {
         }
 
         try {
-            await fetch(import.meta.env.BASE_URL + "/auth/callback", {
+            await fetch(import.meta.env.VITE_API_URL + "/auth/callback", {
                 credentials: 'include',
                 method: "POST",
                 headers: {
