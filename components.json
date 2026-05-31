@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "radix-nova",
+  "style": "default",
   "rsc": false,
   "tsx": true,
   "tailwind": {
@@ -13,18 +13,11 @@
   "iconLibrary": "lucide",
   "rtl": false,
   "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils",
-    "ui": "@/components/ui",
-    "lib": "@/lib",
-    "hooks": "@/hooks"
-  },
-  "aliases": {
-    "components": "./shadui/src/components",
-    "utils": "./src/shadui/components/utils",
-    "ui": "./src/shadui/components/ui",
-    "lib": "@./src/shadui/lib",
-    "hooks": "./src/shadui/components/hooks"
+    "components": "@/shadui/components",
+    "utils": "@/shadui/components/utils",
+    "ui": "@/shadui/components/ui",
+    "lib": "@/shadui/lib",
+    "hooks": "@/shadui/components/hooks"
   },
   "menuColor": "default",
   "menuAccent": "subtle",
