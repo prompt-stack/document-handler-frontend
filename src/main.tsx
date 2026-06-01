@@ -6,11 +6,11 @@ import AppRouter from './AppRouter.tsx'
 import { TooltipProvider } from './shadui/components/ui/tooltip.tsx'
 
 createRoot(document.getElementById('root')!).render(
-  // <StrictMode>
+  <StrictMode>
     <BrowserRouter>
       <TooltipProvider>
         <AppRouter />
       </TooltipProvider>
     </BrowserRouter>
-  // </StrictMode>,
+  </StrictMode>
 )
