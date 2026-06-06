@@ -20,4 +20,4 @@ jobs:
           key: ${{ secrets.EC2_SECRET_KEY }}
           script: |
             echo "Current directory: $(pwd)"
-            'sh ~/deploy_frontend.sh'
+            sh ~/deploy_frontend.sh
