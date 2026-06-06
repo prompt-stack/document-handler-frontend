@@ -26,7 +26,7 @@ export const cognitoCallbackService = {
             window.location.href = '/';
         } catch (error) {
             console.error("Error during login:", error);
-            window.location.href = '/login';
+            return "An error occurred during login. Please try again.";
         }
     }
 }
