@@ -9,13 +9,6 @@ import { cn } from "@/shadui/lib/utils"
 import { Button } from "@/shadui/components/ui/button"
 import { Input } from "@/shadui/components/ui/input"
 import { Separator } from "@/shadui/components/ui/separator"
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-} from "@/shadui/components/ui/sheet"
 import { Skeleton } from "@/shadui/components/ui/skeleton"
 import {
   Tooltip,
@@ -27,7 +20,6 @@ import { PanelLeftIcon } from "lucide-react"
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
 const SIDEBAR_WIDTH = "16rem"
-const SIDEBAR_WIDTH_MOBILE = "18rem"
 const SIDEBAR_WIDTH_ICON = "3rem"
 const SIDEBAR_KEYBOARD_SHORTCUT = "b"
 
