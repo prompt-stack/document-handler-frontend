@@ -11,7 +11,7 @@ export default function AppMobileHeader() {
     }, [isMobile, state])
     return (
         <div className={cn(isMobile ? "block" : "hidden", "h-12 w-full bg-gradient-to-t from-slate-900/10")} >
-            <div className="relative min-w-[250px] flex justify-center items-center w-full h-full flex items-center gap-4">
+            <div className="relative min-w-[250px] flex justify-center items-center w-full h-full bg-[#141621] text-[#F8F9FA] flex items-center gap-4">
                 <div className="absolute left-4 w-full h-full flex items-center gap-4">
                     <SidebarTrigger />
                 </div>

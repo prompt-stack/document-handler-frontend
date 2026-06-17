@@ -174,12 +174,12 @@ export function AppSidebar({ isAuthenticated }: AppSidebarProps) {
 
         {/* 3. FOOTER SECTION (Context-aware action components) */}
         {isAuthenticated && (
-            <SidebarFooter className="p-4 border-t border-slate-800/60">
+            <SidebarFooter className="p-2 border-t border-slate-800/60 flex items-center justify-center">
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton 
                             onClick={handleLogout}
-                            className="w-full justify-center lg:justify-between bg-blue-600 hover:bg-blue-700 text-white rounded-lg p-2.5 font-semibold transition-all group-data-[collapsible=icon]:p-2"
+                            className="w-full flex justify-center bg-blue-600 hover:bg-blue-700 text-white rounded-lg p-2.5 font-semibold transition-all group-data-[collapsible=icon]:p-2"
                         >
                             <div className="flex items-center gap-3">
                             <div className="h-5 w-5 rounded-full bg-white/20 flex items-center justify-center text-white font-bold text-xs select-none">

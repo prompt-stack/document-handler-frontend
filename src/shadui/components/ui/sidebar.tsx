@@ -16,6 +16,7 @@ import {
   TooltipTrigger,
 } from "@/shadui/components/ui/tooltip"
 import { PanelLeftIcon } from "lucide-react"
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "./sheet"
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -153,11 +154,37 @@ function Sidebar({
   variant?: "sidebar" | "floating" | "inset"
   collapsible?: "offcanvas" | "icon" | "none"
 }) {
-  const { isMobile, state } = useSidebar()
+  const { isMobile, state, setOpenMobile } = useSidebar()
+
+  if (isMobile) {
+    return (
+      <Sheet open={state !== "collapsed"} onOpenChange={setOpenMobile} {...props}>
+        <SheetContent
+          dir={dir}
+          data-sidebar="sidebar"
+          data-slot="sidebar"
+          data-mobile="true"
+          className="w-(--sidebar-width) bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
+          style={
+            {
+              "--sidebar-width": SIDEBAR_WIDTH,
+            } as React.CSSProperties
+          }
+          side={side}
+        >
+          <SheetHeader className="sr-only">
+            <SheetTitle>Sidebar</SheetTitle>
+            <SheetDescription>Displays the mobile sidebar.</SheetDescription>
+          </SheetHeader>
+          <div className="flex h-full w-(--sidebar-width) flex-col bg-[#141621]">{children}</div>
+        </SheetContent>
+      </Sheet>
+    )
+  }
 
   return (
     <div
-      className={cn(state === "collapsed" ? "hidden" : isMobile ? "fixed z-50" : "", "group peer text-sidebar-foreground md:block")}
+      className={cn("group peer text-sidebar-foreground md:block")}
       data-state={state}
       data-collapsible={state === "collapsed" ? collapsible : ""}
       data-variant={variant}
