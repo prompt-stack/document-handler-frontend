@@ -44,7 +44,7 @@ export function AppSidebar({ isAuthenticated }: AppSidebarProps) {
   // 1. Pull active navigation item handlers from your old state
   const [activeItem, setActiveItem] = useState<string | null>(null);
   const [isDocumentSubmenuOpen, setIsDocumentSubmenuOpen] = useState(false);
-    const { toggleSidebar, setOpen, open } = useSidebar()
+    const { toggleSidebar, setOpen, open, isMobile } = useSidebar()
   
   // 3. Port your existing async authentication handler perfectly
   const handleLogout = async () => {
@@ -121,7 +121,12 @@ export function AppSidebar({ isAuthenticated }: AppSidebarProps) {
                                                     <SidebarMenuSubItem key={child.id}>
                                                         <SidebarMenuSubButton
                                                             isActive={activeItem === child.id}
-                                                            onClick={() => setActiveItem(child.id)}
+                                                            onClick={() => {
+                                                                setActiveItem(child.id)
+                                                                if (isMobile) {
+                                                                    setOpen(false)
+                                                                }
+                                                            }}
                                                             className={`transition-colors hover:bg-slate-800/50
                                                             ${activeItem === child.id
                                                                 ? "bg-[#2e3248]! text-slate-300! font-semibold"
@@ -144,7 +149,12 @@ export function AppSidebar({ isAuthenticated }: AppSidebarProps) {
                                 <SidebarMenuItem key={item.id}>
                                     <SidebarMenuButton
                                         isActive={isActive}
-                                        onClick={() => setActiveItem(item.id)}
+                                        onClick={() => {
+                                            setActiveItem(item.id)
+                                            if (isMobile) {
+                                                setOpen(false)
+                                            }
+                                        }}
                                         className={`w-full flex items-center gap-4 px-4 py-2.5 rounded-md transition-colors font-medium
                                             ${isActive 
                                             ? "bg-[#454a6b]! text-slate-300! font-semibold" 

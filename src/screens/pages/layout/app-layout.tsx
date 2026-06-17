@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { SidebarProvider } from "@/shadui//components/ui/sidebar";
 import { AppSidebar } from "@/screens/components/AppSidebar";
+import AppMobileHeader from "./app-mobile-header";
 
 export default function AppLayout({ isAuthenticated }: { isAuthenticated: boolean | null }) {
   
@@ -16,7 +17,8 @@ export default function AppLayout({ isAuthenticated }: { isAuthenticated: boolea
     <SidebarProvider>
       <div className="flex min-h-screen w-full bg-[#f8f9fa] text-slate-900">
         <AppSidebar isAuthenticated={isAuthenticated}/>
-        <main className="flex-1 p-6 relative overflow-x-hidden">
+        <main className="flex-1 relative overflow-x-hidden">
+          <AppMobileHeader />
           <div className="w-full">
             <Outlet />
           </div>
