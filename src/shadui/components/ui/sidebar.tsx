@@ -156,9 +156,13 @@ function Sidebar({
 }) {
   const { isMobile, state, setOpenMobile } = useSidebar()
 
+  if(isMobile && state !== "collapsed") {
+    return <></>
+  }
+
   if (isMobile) {
     return (
-      <Sheet open={state !== "collapsed"} onOpenChange={setOpenMobile} {...props}>
+      <Sheet open={true} onOpenChange={setOpenMobile} {...props}>
         <SheetContent
           dir={dir}
           data-sidebar="sidebar"
